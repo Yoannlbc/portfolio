@@ -1,0 +1,51 @@
+.infos {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 30px;
+  flex-wrap: wrap; // Pour que les boutons passent à la ligne sur petit écran
+}
+
+.cv-button,
+.about-button {
+  width: 300px;
+  padding: 15px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 10px;
+  font: 500 20px Inter, sans-serif;
+  color: white;
+  transition: all 0.7s ease;
+}
+
+.cv-button {
+  border: 1px solid #3f3f3e;
+  background-color: white;
+  color: black;
+}
+
+.cv-button:hover {
+  background-color: rgb(10, 0, 27);
+  color: white;
+}
+
+.about-button {
+  border: 1px solid #767676;
+  background-color: rgb(10, 0, 27);
+}
+
+.about-button:hover {
+  background-color: #fff;
+  color: rgb(10, 0, 27);
+}
+
+.about-text {
+  display: block;
+  text-align: center;
+  max-width: 800px;
+  margin: 30px auto;
+  color: #333;
+  font-size: 18px;
+  line-height: 1.6;
+}

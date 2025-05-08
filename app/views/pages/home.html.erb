@@ -1,0 +1,83 @@
+<div class="header">
+  <div class="header-content">
+    <div class="left-side">
+      <%= image_tag "YL.png", class: "yl-logo" %>
+      <h1>Hello,</h1>
+      <h3>Je suis Yoann Leblanc, développeur web junior basé à Montpellier.</h3>
+    </div>
+    <div class="laptop-wrapper">
+  <%= image_tag "laptop_modify_4.png", class: "laptop-image" %>
+</div>
+  </div>
+
+  <!-- Vague vers le haut -->
+  <div class="wave-container">
+    <svg class="wave" viewBox="0 0 1440 100" preserveAspectRatio="none">
+      <path d="M0,100 C480,0 960,0 1440,100 L1440,100 L0,100 Z" fill="white"/>
+    </svg>
+  </div>
+</div>
+<div class="infos">
+  <a href="/CV/Yoann_Leblanc_CV_DEV.pdf" class="cv-button" download>Télécharger mon CV</a>
+  <a href="#a-propos" class="about-button">À propos de moi</a>
+</div>
+
+<h3 class="projets">Mes projets</h3>
+<div class="projects-grid pt-4">
+  <div class="project" data-project="cavinum">
+    <div class="project-wrap">
+      <div class="project-header">
+        <%= image_tag "cavinum_logo.png", class: "cavinum-logo" %>
+      </div>
+      <div class="project-text">
+        <h3>Cavinum</h3>
+        <p class="project-paragraph">Cavinum est une application mobile qui permet de gérer sa cave à vin de manière simple et intuitive. Il s'agit du projet de fin de formation du Wagon que nous devions réalisé en équipe.</p>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="project" data-project="vinyles">
+    <div class="project-wrap">
+      <div class="project-header">
+        <%= image_tag "Vinyles_Flow_logo.png", class: "vinyles-flow-logo" %>
+      </div>
+      <div class="project-text">
+        <h3>Vinyles Flow</h3>
+        <p class="project-paragraph">Vinyles Flow est une application mobile qui permet de gérer sa collection de vinyles. Projet réalisé seul après la formation.</p>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="project" data-project="mentor">
+    <div class="project-wrap">
+      <div class="project-header">
+        <%= image_tag "senior_mentor.png", class: "senior-mentor-logo" %>
+      </div>
+      <div class="project-text">
+        <h3>Senior Mentor</h3>
+        <p class="project-paragraph">Senior Mentor est un site web de location de services délivrés par des "séniors", que ce soit des cours de cuisine, de jardinage, des histoires racontées comme nos grands-parents pouvaient le faire... Projet Réalisé pendant la formation au Wagon en équipe.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div id="a-propos">
+  <h3 class="about-title">À propos de moi</h3>
+  <span class="about-text">
+    À 37 ans, je suis actuellement en reconversion professionnelle. Après avoir travaillé pendant 15 ans dans le secteur du tourisme, j’ai décidé de me lancer un nouveau défi et de me reconvertir en tant que développeur web. Après une formation intensive de 2 mois au sein du Wagon, j’ai pu acquérir les bases de plusieurs langages (Ruby on Rails, Javascript, HTML, CSS) ainsi que la gestion de bases de données avec SQL. En parallèle, j’ai appris les bases de logiciels comme Figma. À la recherche d’un job, n’hésitez pas à prendre contact avec moi afin que nous puissions échanger.
+  </span>
+</div>
+
+<div id="project-modal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <div class="carousel">
+      <div class="carousel-images"></div>
+      <button class="carousel-prev">&#10094;</button>
+      <button class="carousel-next">&#10095;</button>
+    </div>
+  </div>
+</div>
