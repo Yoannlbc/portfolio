@@ -52,11 +52,13 @@ function initProjectModal() {
       const imgElement = document.createElement('img');
       imgElement.src = imgPath;
       imgElement.className = index === 0 ? 'active' : '';
+      imgElement.alt = `Image ${index + 1} de ${projectKey}`;
       imagesContainer.appendChild(imgElement);
     });
 
     // Afficher le modal
     modal.style.display = 'block';
+    document.body.style.overflow = 'hidden'; // Empêche le défilement de la page
 
     // Mettre à jour l'affichage du carousel
     updateCarousel();
@@ -65,6 +67,7 @@ function initProjectModal() {
   // Fonction pour fermer le modal
   function closeModal() {
     modal.style.display = 'none';
+    document.body.style.overflow = ''; // Réactive le défilement
   }
 
   // Fonction pour naviguer dans le carousel
@@ -84,8 +87,17 @@ function initProjectModal() {
   // Mettre à jour l'affichage du carousel
   function updateCarousel() {
     const images = imagesContainer.querySelectorAll('img');
+
+    // Log pour le débogage
+    console.log("Updating carousel. Current slide:", currentSlide);
+    console.log("Number of images:", images.length);
+
     images.forEach((img, index) => {
-      img.className = index === currentSlide ? 'active' : '';
+      if (index === currentSlide) {
+        img.classList.add('active');
+      } else {
+        img.classList.remove('active');
+      }
     });
   }
 
@@ -99,20 +111,30 @@ function initProjectModal() {
   });
 
   // Écouteurs d'événements pour les boutons de navigation
-  prevButton.addEventListener('click', () => navigate(-1));
-  nextButton.addEventListener('click', () => navigate(1));
+  prevButton.addEventListener('click', function(e) {
+    e.stopPropagation(); // Empêche la propagation de l'événement
+    navigate(-1);
+  });
+
+  nextButton.addEventListener('click', function(e) {
+    e.stopPropagation(); // Empêche la propagation de l'événement
+    navigate(1);
+  });
 
   // Écouteur d'événement pour fermer le modal
-  closeButton.addEventListener('click', closeModal);
+  closeButton.addEventListener('click', function(e) {
+    e.stopPropagation(); // Empêche la propagation de l'événement
+    closeModal();
+  });
 
   // Fermer le modal en cliquant à l'extérieur
-  window.addEventListener('click', (event) => {
+  modal.addEventListener('click', function(event) {
     if (event.target === modal) {
       closeModal();
     }
   });
 
-  // Écouteurs pour les touches clavier (facultatif)
+  // Écouteurs pour les touches clavier
   document.addEventListener('keydown', (event) => {
     if (modal.style.display === 'block') {
       if (event.key === 'Escape') {
