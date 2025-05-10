@@ -1,0 +1,53 @@
+.softskills-title{
+  font-family: "Inter", sans-serif;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  line-height: 1;
+  margin-top: 40px;
+  color: #03346E;
+}
+
+.skills-container{
+  justify-content: center;
+}
+
+.skills-box{
+  padding: 1em;
+  border: 1px solid #2b69fb1f;
+  width: 380px;
+  height: 350px;
+  display: flex;
+  justify-content: center;
+  column-gap: 2.5rem;
+  border-radius: 10%;
+  margin:auto;
+  margin-top:30px;
+  box-shadow: 0 0 0.2rem 0.2rem #2b69fb0f
+}
+
+.skills-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+}
+
+.skills-title {
+  font-family: "Inter", sans-serif;
+  color: black;
+  padding-top:10px;
+  font-weight: bold;
+}
+
+.skills-level {
+  font-family: "Inter", sans-serif;
+  font-weight:lighter;
+}
+
+.skill-item {
+  font-family: "Inter", sans-serif;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}

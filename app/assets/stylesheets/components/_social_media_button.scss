@@ -1,0 +1,19 @@
+.social-icons {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.linkedin-button, .github-button{
+  font-size: 30px;
+  text-align: center;
+  align-content:space-between;
+  transform: translateY(35px);
+  cursor: pointer;
+}
+
+.social-icons a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}

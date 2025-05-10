@@ -16,8 +16,10 @@ function initProjectModal() {
       { type: 'image', src: 'vinylesflow_4.png' }
     ],
     mentor: [
-      { type: 'image', src: 'mentor1.png' },
-      { type: 'image', src: 'mentor2.png' }
+      { type: 'image', src: 'senior_mentor_1.png' },
+      { type: 'image', src: 'senior_mentor_2.png' },
+      { type: 'image', src: 'senior_mentor_3.png' },
+      { type: 'image', src: 'senior_mentor_5.png' }
     ]
   };
 

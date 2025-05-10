@@ -1,3 +1,4 @@
+<div id="top">
 <div class="header">
   <div class="header-content">
     <div class="left-side">
@@ -10,13 +11,14 @@
 </div>
   </div>
 
-  <!-- Vague vers le haut -->
   <div class="wave-container">
     <svg class="wave" viewBox="0 0 1440 100" preserveAspectRatio="none">
       <path d="M0,100 C480,0 960,0 1440,100 L1440,100 L0,100 Z" fill="white"/>
     </svg>
   </div>
 </div>
+</div>
+
 <div class="infos">
   <a href="/CV/Yoann_Leblanc_CV_DEV.pdf" class="cv-button" download>Télécharger mon CV</a>
   <a href="#a-propos" class="about-button">À propos de moi</a>
@@ -101,6 +103,35 @@
   </span>
 </div>
 
+<div class="softskills">
+  <h3 class="softskills-title">Mes compétences</h3>
+    <div class="skills-box pt-3">
+  <div class="skills-container">
+    <div class="skill-item">
+      <p class="skills-title">HTML</p>
+      <span class="skills-level">Débutant</span>
+    </div>
+    <div class="skill-item">
+      <p class="skills-title">CSS</p>
+      <span class="skills-level">Débutant</span>
+    </div>
+    <div class="skill-item">
+      <p class="skills-title">SQL</p>
+      <span class="skills-level">Débutant</span>
+    </div>
+    <div class="skill-item">
+      <p class="skills-title">JavaScript</p>
+      <span class="skills-level">Débutant</span>
+    </div>
+    <div class="skill-item">
+      <p class="skills-title">Figma</p>
+      <span class="skills-level">Débutant</span>
+    </div>
+  </div>
+</div>
+    </div>
+</div>
+
 <div id="project-modal" class="modal">
   <div class="modal-content">
     <span class="close">&times;</span>
@@ -110,4 +141,29 @@
       <button class="carousel-next">&#10095;</button>
     </div>
   </div>
+</div>
+
+<div class="footer">
+  <div class="footer-content">
+    <div class="center-content">
+      <a href="#top" class="yl-button">
+        <%= image_tag "YL.png", class: "yl-logo-footer" %>
+      </a>
+      <div class="social-icons">
+      <a href="https://www.linkedin.com/in/yoannlbc/" target="_blank">
+      <i class="fa-brands fa-linkedin-in linkedin-button"></i>
+      </a>
+      <a href="https://github.com/Yoannlbc" target="_blank">
+      <i class="fa-brands fa-github github-button"></i>
+      </a>
+      </div>
+      <p>©2025 yoannleblanc.com. All rights reserved</p>
+    </div>
+  </div>
+
+  <div class="footer-wave-container">
+  <svg class="footer-wave" viewBox="0 0 1440 100" preserveAspectRatio="none">
+    <path d="M0,100 C480,0 960,0 1440,100 L1440,100 L0,100 Z" fill="white"/>
+  </svg>
+</div>
 </div>

@@ -2,6 +2,7 @@
   text-align: center;
   margin-bottom: 2rem;
   font-size: 2rem;
+  font-weight: bold;
 }
 
 .projects-grid {
@@ -92,7 +93,7 @@
   color: #333;
   opacity: 0;
   transition: opacity 0.3s ease;
-  z-index: 1; /* s'assurer qu'elle soit au-dessus du fond, mais sous le texte si besoin */
+  z-index: 1;
 }
 
 .project:hover .github-link {
@@ -110,10 +111,10 @@
 
   .vinyles-logo{
   position: absolute;
-  bottom: 5px;
+  bottom: 6px;
   left: 40px;
-  width: 30px;
-  height: 45px;
+  width: 32px;
+  height: 40px;
   color: #333;
   opacity: 1;
   transition: opacity 0.3s ease;

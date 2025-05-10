@@ -1,0 +1,55 @@
+.footer {
+  position: relative;
+  background: fixed rgb(10, 0, 27);
+  border-bottom: 10px solid #03346E;
+  color: white;
+  padding: 10px;
+  overflow: hidden;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 50px;
+  min-height: 290px;
+}
+
+.center-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.center-content p {
+  transform: translateY(70px);
+  padding-top: 10px;
+  margin: 0
+}
+
+.yl-logo-footer {
+  width: 70px;
+  height: 40px;
+  margin-top: 55px;
+}
+
+.footer-wave-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  line-height: 0;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.footer-wave {
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  transform: rotateX(180deg);
+}
