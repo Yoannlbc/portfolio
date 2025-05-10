@@ -9,11 +9,15 @@
 .cavinum-logo {
   width: 135px;
   height: 220px;
+  mask-image: linear-gradient(to bottom, transparent 0%, black 40%);
+  -webkit-mask-image: linear-gradient(to top, transparent 30%, black 75%);
 }
 
 .vinyles-flow-logo {
   width: 220px;
   height: 250px;
+  mask-image: linear-gradient(to bottom, transparent 0%, black 40%);
+  -webkit-mask-image: linear-gradient(to top, transparent 20%, black 75%);
 }
 
 .senior-mentor-logo {

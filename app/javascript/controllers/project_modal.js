@@ -1,20 +1,32 @@
 function initProjectModal() {
   console.log("Initializing project modal");
 
-  // Configuration des images par projet
-  const projectImages = {
-    cavinum: ["cavinum_1.png", "cavinum_2.png", "cavinum_3.png"],
-    vinyles: ["vinylesflow_1.png", "vinylesflow_2.png", "vinylesflow_3.png", "vinylesflow_4.png"],
-    mentor: ["mentor1.png", "mentor2.png"]
+  // Configuration des médias (images ou vidéos) par projet
+  const projectMedia = {
+    cavinum: [
+      { type: 'image', src: 'cavinum_1.png' },
+      { type: 'image', src: 'cavinum_2.png' },
+      { type: 'image', src: 'cavinum_3.png' },
+      { type: 'video', src: 'https://www.youtube.com/embed/YBOQmIEBFjY?si=-zOFGeyxt7ic4_bo' }
+    ],
+    vinyles: [
+      { type: 'image', src: 'vinylesflow_1.png' },
+      { type: 'image', src: 'vinylesflow_2.png' },
+      { type: 'image', src: 'vinylesflow_3.png' },
+      { type: 'image', src: 'vinylesflow_4.png' }
+    ],
+    mentor: [
+      { type: 'image', src: 'mentor1.png' },
+      { type: 'image', src: 'mentor2.png' }
+    ]
   };
 
-  let imagesList = [];
+  let mediaList = [];
   let currentSlide = 0;
 
   // Éléments DOM
   const modal = document.getElementById('project-modal');
 
-  // Vérifier si le modal existe
   if (!modal) {
     console.error("Modal not found!");
     return;
@@ -25,116 +37,109 @@ function initProjectModal() {
   const nextButton = modal.querySelector('.carousel-next');
   const closeButton = modal.querySelector('.close');
 
-  // Vérifier que les éléments existent
   if (!imagesContainer || !prevButton || !nextButton || !closeButton) {
     console.error("One or more modal elements not found!");
-    console.log({imagesContainer, prevButton, nextButton, closeButton});
     return;
   }
 
-  // Fonction pour ouvrir le modal
   function openModal(projectKey) {
     console.log("Opening modal for project:", projectKey);
 
-    if (!projectImages[projectKey]) {
-      console.error("No images found for project:", projectKey);
+    if (!projectMedia[projectKey]) {
+      console.error("No media found for project:", projectKey);
       return;
     }
 
-    // Réinitialiser
     imagesContainer.innerHTML = '';
-    imagesList = projectImages[projectKey];
+    mediaList = projectMedia[projectKey];
     currentSlide = 0;
 
-    // Créer les éléments d'image
-    imagesList.forEach((src, index) => {
-      const imgPath = `/assets/${src}`;
-      const imgElement = document.createElement('img');
-      imgElement.src = imgPath;
-      imgElement.className = index === 0 ? 'active' : '';
-      imgElement.alt = `Image ${index + 1} de ${projectKey}`;
-      imagesContainer.appendChild(imgElement);
+    // Crée les éléments (images ou iframes vidéo)
+    mediaList.forEach((media, index) => {
+      let element;
+
+      if (media.type === 'image') {
+        element = document.createElement('img');
+        element.src = `/assets/${media.src}`;
+        element.alt = `Image ${index + 1} de ${projectKey}`;
+      } else if (media.type === 'video') {
+        element = document.createElement('iframe');
+        element.src = media.src;
+        element.width = "560";
+        element.height = "315";
+        element.title = "Vidéo du projet";
+        element.frameBorder = "0";
+        element.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+        element.allowFullscreen = true;
+      }
+
+      element.className = index === 0 ? 'active' : '';
+      imagesContainer.appendChild(element);
     });
 
-    // Afficher le modal
     modal.style.display = 'block';
-    document.body.style.overflow = 'hidden'; // Empêche le défilement de la page
+    document.body.style.overflow = 'hidden';
 
-    // Mettre à jour l'affichage du carousel
     updateCarousel();
   }
 
-  // Fonction pour fermer le modal
   function closeModal() {
     modal.style.display = 'none';
-    document.body.style.overflow = ''; // Réactive le défilement
+    document.body.style.overflow = '';
   }
 
-  // Fonction pour naviguer dans le carousel
   function navigate(direction) {
     currentSlide += direction;
 
-    // Gérer la navigation circulaire
     if (currentSlide < 0) {
-      currentSlide = imagesList.length - 1;
-    } else if (currentSlide >= imagesList.length) {
+      currentSlide = mediaList.length - 1;
+    } else if (currentSlide >= mediaList.length) {
       currentSlide = 0;
     }
 
     updateCarousel();
   }
 
-  // Mettre à jour l'affichage du carousel
   function updateCarousel() {
-    const images = imagesContainer.querySelectorAll('img');
+    const items = imagesContainer.children;
 
-    // Log pour le débogage
-    console.log("Updating carousel. Current slide:", currentSlide);
-    console.log("Number of images:", images.length);
-
-    images.forEach((img, index) => {
+    Array.from(items).forEach((item, index) => {
       if (index === currentSlide) {
-        img.classList.add('active');
+        item.classList.add('active');
       } else {
-        img.classList.remove('active');
+        item.classList.remove('active');
       }
     });
   }
 
-  // Ajouter des écouteurs d'événements pour les projets
   document.querySelectorAll('.project').forEach(project => {
-    project.addEventListener('click', function() {
-      console.log("Project clicked:", this.dataset.project);
+    project.addEventListener('click', function () {
       const projectKey = this.dataset.project;
       openModal(projectKey);
     });
   });
 
-  // Écouteurs d'événements pour les boutons de navigation
-  prevButton.addEventListener('click', function(e) {
-    e.stopPropagation(); // Empêche la propagation de l'événement
+  prevButton.addEventListener('click', function (e) {
+    e.stopPropagation();
     navigate(-1);
   });
 
-  nextButton.addEventListener('click', function(e) {
-    e.stopPropagation(); // Empêche la propagation de l'événement
+  nextButton.addEventListener('click', function (e) {
+    e.stopPropagation();
     navigate(1);
   });
 
-  // Écouteur d'événement pour fermer le modal
-  closeButton.addEventListener('click', function(e) {
-    e.stopPropagation(); // Empêche la propagation de l'événement
+  closeButton.addEventListener('click', function (e) {
+    e.stopPropagation();
     closeModal();
   });
 
-  // Fermer le modal en cliquant à l'extérieur
-  modal.addEventListener('click', function(event) {
+  modal.addEventListener('click', function (event) {
     if (event.target === modal) {
       closeModal();
     }
   });
 
-  // Écouteurs pour les touches clavier
   document.addEventListener('keydown', (event) => {
     if (modal.style.display === 'block') {
       if (event.key === 'Escape') {
@@ -148,10 +153,8 @@ function initProjectModal() {
   });
 }
 
-// Initialiser lorsque le DOM est chargé
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', initProjectModal);
 } else {
-  // Le DOM est déjà chargé
   initProjectModal();
 }

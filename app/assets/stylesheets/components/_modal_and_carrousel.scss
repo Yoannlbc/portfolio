@@ -82,3 +82,24 @@
   transform: translateY(-5px);
   box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
+
+.carousel-images > * {
+  display: none;
+}
+.carousel-images > *.active {
+  display: block;
+}
+
+.carousel-images {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%; /* ou une hauteur fixe si nécessaire */
+}
+
+.carousel-images iframe,
+.carousel-images img {
+  max-width: 85%;
+  max-height: 100%;
+  object-fit: contain;
+}
