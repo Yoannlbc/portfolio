@@ -12,8 +12,8 @@
 .modal-content {
   position: relative;
   margin: 5% auto;
-  max-width: 700px; /* Réduit de 800px à 700px */
-  width: 80%; /* Réduit de 90% à 80% */
+  max-width: 700px;
+  width: 80%;
   background: white;
   border-radius: 10px;
   padding: 20px;
@@ -27,34 +27,34 @@
   font-size: 28px;
   font-weight: bold;
   cursor: pointer;
-  z-index: 2000; /* Assure que le bouton reste au dessus */
+  z-index: 2000;
 }
 
 .carousel {
   position: relative;
-  padding: 1rem; /* Réduit de 2rem à 1rem */
+  padding: 1rem;
   text-align: center;
-  height: 500px; /* Hauteur fixe pour le carrousel */
-  overflow: hidden; /* Évite que les images débordent */
+  height: 500px;
+  overflow: hidden;
 }
 
 .carousel-images img {
-  display: none; /* Cache toutes les images par défaut */
-  max-width: 100%; /* Limite la largeur à 100% du conteneur */
-  max-height: 460px; /* Limite la hauteur */
+  display: none;
+  max-width: 100%;
+  max-height: 460px;
   margin: 0 auto;
-  object-fit: contain; /* Garde le ratio d'aspect */
+  object-fit: contain;
 }
 
 .carousel-images img.active {
-  display: block; /* Affiche seulement l'image active */
+  display: block;
 }
 
 .carousel-prev, .carousel-next {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0,0,0,0.5); /* Plus visible */
+  background: rgba(0,0,0,0.5);
   border: none;
   border-radius: 50%;
   width: 40px;
@@ -62,7 +62,7 @@
   font-size: 20px;
   cursor: pointer;
   color: white;
-  z-index: 1500; /* S'assure que les boutons sont clickables */
+  z-index: 1500;
 }
 
 .carousel-prev {
@@ -94,7 +94,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%; /* ou une hauteur fixe si nécessaire */
+  height: 100%;
 }
 
 .carousel-images iframe,

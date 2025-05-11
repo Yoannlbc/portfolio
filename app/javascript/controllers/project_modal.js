@@ -1,7 +1,6 @@
 function initProjectModal() {
   console.log("Initializing project modal");
 
-  // Configuration des médias (images ou vidéos) par projet
   const projectMedia = {
     cavinum: [
       { type: 'image', src: 'cavinum_1.png' },
@@ -26,7 +25,6 @@ function initProjectModal() {
   let mediaList = [];
   let currentSlide = 0;
 
-  // Éléments DOM
   const modal = document.getElementById('project-modal');
 
   if (!modal) {
@@ -56,7 +54,6 @@ function initProjectModal() {
     mediaList = projectMedia[projectKey];
     currentSlide = 0;
 
-    // Crée les éléments (images ou iframes vidéo)
     mediaList.forEach((media, index) => {
       let element;
 
